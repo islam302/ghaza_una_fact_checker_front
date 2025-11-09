@@ -21,7 +21,7 @@ const TRANSLATIONS = {
     inputLabel: "اكتب عنوان الخبر المراد التحقق منه",
     placeholder: "",
     ariaInput: "مربع إدخال النص للتحقق من الخبر",
-    scopeNote: "💡 ملاحظة: هذا النظام متخصص في التحقق من الأخبار المتعلقة بغزة وفلسطين ومنظمة التعاون الإسلامي فقط.",
+    scopeNote: "💡 ملاحظة: هذا النظام متخصص في التحقق من الأخبار المتعلقة بغزة وفلسطين فقط.",
     errorNoQuery: "اكتب الخبر أولًا.",
     errorFetch: "تعذر الحصول على النتيجة",
     errorUnexpected: "حدث خطأ غير متوقع.",
@@ -57,7 +57,7 @@ const TRANSLATIONS = {
     inputLabel: "Enter the news headline to fact-check",
     placeholder: "",
     ariaInput: "Text input for fact-checking",
-    scopeNote: "💡 Note: This system specializes in fact-checking news related to Gaza, Palestine, and the Organization of Islamic Cooperation only.",
+    scopeNote: "💡 Note: This system specializes in fact-checking news related to Gaza and Palestine only.",
     errorNoQuery: "Please enter the news first.",
     errorFetch: "Failed to get result",
     errorUnexpected: "An unexpected error occurred.",
@@ -93,7 +93,7 @@ const TRANSLATIONS = {
     inputLabel: "Saisissez le titre de la nouvelle à vérifier",
     placeholder: "",
     ariaInput: "Zone de texte pour la vérification des faits",
-    scopeNote: "💡 Note : Ce système est spécialisé uniquement dans la vérification des nouvelles concernant Gaza, la Palestine et l'Organisation de la coopération islamique.",
+    scopeNote: "💡 Note : Ce système est spécialisé uniquement dans la vérification des nouvelles concernant Gaza et la Palestine.",
     errorNoQuery: "Veuillez d'abord saisir la nouvelle.",
     errorFetch: "Échec de l’obtention du résultat",
     errorUnexpected: "Une erreur inattendue s’est produite.",
@@ -779,10 +779,10 @@ function AINeonFactChecker() {
                     </span>
                     {' '}
                     {language === 'arabic' 
-                      ? 'هذا النظام متخصص في التحقق من الأخبار المتعلقة بغزة وفلسطين ومنظمة التعاون الإسلامي فقط.'
+                      ? 'هذا النظام متخصص في التحقق من الأخبار المتعلقة بغزة وفلسطين فقط.'
                       : language === 'french'
-                      ? 'Ce système est spécialisé uniquement dans la vérification des nouvelles concernant Gaza, la Palestine et l\'Organisation de la coopération islamique.'
-                      : 'This system specializes in fact-checking news related to Gaza, Palestine, and the Organization of Islamic Cooperation only.'}
+                      ? 'Ce système est spécialisé uniquement dans la vérification des nouvelles concernant Gaza et la Palestine.'
+                      : 'This system specializes in fact-checking news related to Gaza and Palestine only.'}
                   </p>
                 </div>
               </div>
