@@ -8,7 +8,7 @@ import unaLogoDark from "./assets/unalogo-dark.png";
 import unaLogoLight from "./assets/unalogo-light.png";
 
 // ======= Config =======
-const API_BASE_URL = "http://62.72.22.223";  // Using localhost as in Postman
+const API_BASE_URL = "http://62.72.22.223";  // Requests are proxied via Vite dev server
 const FACT_CHECK_URL = `${API_BASE_URL}/fact_check/`;  // Main endpoint from Postman
 const COMPOSE_NEWS_URL = `${API_BASE_URL}/fact_check/compose_news/`;
 const COMPOSE_TWEET_URL = `${API_BASE_URL}/fact_check/compose_tweet/`;
@@ -88,24 +88,24 @@ const TRANSLATIONS = {
     analysis: "Analysis",
   },
   french: {
-    logoAlt: "Logo de l’université",
+    logoAlt: "Logo de l'université",
     title: "Vérificateur de faits",
     inputLabel: "Saisissez le titre de la nouvelle à vérifier",
     placeholder: "",
     ariaInput: "Zone de texte pour la vérification des faits",
     scopeNote: "💡 Note : Ce système est spécialisé uniquement dans la vérification des nouvelles concernant Gaza et la Palestine.",
     errorNoQuery: "Veuillez d'abord saisir la nouvelle.",
-    errorFetch: "Échec de l’obtention du résultat",
-    errorUnexpected: "Une erreur inattendue s’est produite.",
+    errorFetch: "Échec de l'obtention du résultat",
+    errorUnexpected: "Une erreur inattendue s'est produite.",
     status: "Statut",
     analysis: "Analyse",
     sources: "Sources",
     none: "Aucun",
     noSources: "Aucune source disponible.",
     generatedNews: "Article généré",
-    copyGeneratedNewsAria: "Copier l’article généré",
+    copyGeneratedNewsAria: "Copier l'article généré",
     copyGeneratedTweetAria: "Copier le tweet généré",
-    buttonCopyNewsText: "Copier l’article",
+    buttonCopyNewsText: "Copier l'article",
     buttonCopyTweetText: "Tweet X",
     tweetHeading: "Tweet généré",
     tweetCardTitle: "Vérificateur de faits",
