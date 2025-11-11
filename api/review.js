@@ -1,3 +1,27 @@
+async function readRequestBody(req) {
+  return new Promise((resolve, reject) => {
+    let data = '';
+
+    req.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    req.on('end', () => {
+      if (!data) {
+        resolve(null);
+        return;
+      }
+      try {
+        resolve(JSON.parse(data));
+      } catch {
+        resolve(data);
+      }
+    });
+
+    req.on('error', reject);
+  });
+}
+
 export default async function handler(req, res) {
   try {
     const upstreamPath = req.url.replace(/^\/api\/review/, '/fact_check');
@@ -11,20 +35,24 @@ export default async function handler(req, res) {
     };
 
     if (req.method !== 'GET' && req.method !== 'HEAD') {
-      init.body = JSON.stringify(req.body);
+      let body = req.body;
+      if (body === undefined) {
+        body = await readRequestBody(req);
+      }
+
+      if (body && typeof body !== 'string') {
+        init.body = JSON.stringify(body);
+      } else if (typeof body === 'string') {
+        init.body = body;
+      } else {
+        init.body = JSON.stringify({});
+      }
     }
 
     const upstream = await fetch(upstreamUrl, init);
     const text = await upstream.text();
 
-    let data;
-    try {
-      data = JSON.parse(text);
-    } catch (err) {
-      data = text;
-    }
-
-    res.status(upstream.status).json(data);
+    res.status(upstream.status).send(text);
   } catch (err) {
     res.status(500).json({ detail: err.message });
   }
