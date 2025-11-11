@@ -8,10 +8,9 @@ import unaLogoDark from "./assets/unalogo-dark.png";
 import unaLogoLight from "./assets/unalogo-light.png";
 
 // ======= Config =======
-const API_BASE_URL = "http://62.72.22.223";  // Requests are proxied via Vite dev server
-const FACT_CHECK_URL = `${API_BASE_URL}/fact_check/`;  // Main endpoint from Postman
-const COMPOSE_NEWS_URL = `${API_BASE_URL}/fact_check/compose_news/`;
-const COMPOSE_TWEET_URL = `${API_BASE_URL}/fact_check/compose_tweet/`;
+const FACT_CHECK_URL = "/api/review";  // Proxied via serverless handler
+const COMPOSE_NEWS_URL = `${FACT_CHECK_URL}/compose_news`;
+const COMPOSE_TWEET_URL = `${FACT_CHECK_URL}/compose_tweet`;
 
 // ======= i18n (AR / EN / FR) =======
 const TRANSLATIONS = {
