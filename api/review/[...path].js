@@ -8,18 +8,17 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Extract the path from the request URL
-    // For Vercel: /api/review -> /fact_check/
-    // For Vercel: /api/review/compose_news -> /fact_check/compose_news/
-    const url = new URL(req.url, `http://${req.headers.host}`);
-    let path = url.pathname.replace(/^\/api\/review/, '/fact_check');
+    // Extract path from Vercel dynamic route
+    const pathSegments = req.query.path || [];
+    const path = Array.isArray(pathSegments) ? pathSegments.join('/') : pathSegments;
     
-    // Ensure trailing slash for base path
-    if (path === '/fact_check') {
-      path = '/fact_check/';
+    // Build upstream URL
+    let upstreamPath = '/fact_check/';
+    if (path) {
+      upstreamPath = `/fact_check/${path}${path.endsWith('/') ? '' : '/'}`;
     }
     
-    const upstreamUrl = `http://62.72.22.223${path}${url.search}`;
+    const upstreamUrl = `http://62.72.22.223${upstreamPath}`;
 
     const init = {
       method: req.method,
@@ -33,8 +32,13 @@ export default async function handler(req, res) {
       init.body = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
     }
 
+    console.log('Proxying to:', upstreamUrl, 'Method:', req.method);
+
     const upstream = await fetch(upstreamUrl, init);
     const text = await upstream.text();
+    
+    console.log('Upstream response status:', upstream.status);
+    console.log('Upstream response text:', text.substring(0, 200));
     
     // Try to parse as JSON, otherwise return as text
     try {
@@ -53,3 +57,4 @@ export default async function handler(req, res) {
     });
   }
 }
+

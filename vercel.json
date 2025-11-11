@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/review/[...path].js": {
+      "maxDuration": 30
+    }
+  }
+}
+
