@@ -20,11 +20,16 @@ export default async function handler(req, res) {
     
     const upstreamUrl = `http://62.72.22.223${upstreamPath}`;
 
+    // Create abort controller for timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 120000); // 120 seconds (2 minutes)
+    
     const init = {
       method: req.method,
       headers: {
         'Content-Type': 'application/json',
       },
+      signal: controller.signal,
     };
 
     // Handle request body for POST/PUT requests
@@ -34,20 +39,29 @@ export default async function handler(req, res) {
 
     console.log('Proxying to:', upstreamUrl, 'Method:', req.method);
 
-    const upstream = await fetch(upstreamUrl, init);
-    const text = await upstream.text();
-    
-    console.log('Upstream response status:', upstream.status);
-    console.log('Upstream response text:', text.substring(0, 200));
-    
-    // Try to parse as JSON, otherwise return as text
     try {
-      const json = JSON.parse(text);
-      res.setHeader('Content-Type', 'application/json');
-      return res.status(upstream.status).json(json);
-    } catch {
-      res.setHeader('Content-Type', 'text/plain');
-      return res.status(upstream.status).send(text);
+      const upstream = await fetch(upstreamUrl, init);
+      clearTimeout(timeoutId);
+      const text = await upstream.text();
+      
+      console.log('Upstream response status:', upstream.status);
+      console.log('Upstream response text:', text.substring(0, 200));
+      
+      // Try to parse as JSON, otherwise return as text
+      try {
+        const json = JSON.parse(text);
+        res.setHeader('Content-Type', 'application/json');
+        return res.status(upstream.status).json(json);
+      } catch {
+        res.setHeader('Content-Type', 'text/plain');
+        return res.status(upstream.status).send(text);
+      }
+    } catch (fetchError) {
+      clearTimeout(timeoutId);
+      if (fetchError.name === 'AbortError') {
+        throw new Error('Request timeout after 120 seconds');
+      }
+      throw fetchError;
     }
   } catch (err) {
     console.error('Proxy error:', err);

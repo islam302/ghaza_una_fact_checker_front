@@ -1,7 +1,10 @@
 {
   "functions": {
+    "api/review.js": {
+      "maxDuration": 120
+    },
     "api/review/[...path].js": {
-      "maxDuration": 30
+      "maxDuration": 120
     }
   }
 }
