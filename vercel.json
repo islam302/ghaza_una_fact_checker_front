@@ -1,9 +1,12 @@
 {
   "functions": {
-    "api/review.js": {
+    "api/fact_check.js": {
       "maxDuration": 120
     },
-    "api/review/[...path].js": {
+    "api/compose_news.js": {
+      "maxDuration": 120
+    },
+    "api/compose_tweet.js": {
       "maxDuration": 120
     }
   }
