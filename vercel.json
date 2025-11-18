@@ -1,12 +1,12 @@
 {
   "functions": {
-    "api/fact_check.js": {
+    "api/fact_check/index.js": {
       "maxDuration": 120
     },
-    "api/compose_news.js": {
+    "api/fact_check/compose_news.js": {
       "maxDuration": 120
     },
-    "api/compose_tweet.js": {
+    "api/fact_check/compose_tweet.js": {
       "maxDuration": 120
     }
   }
