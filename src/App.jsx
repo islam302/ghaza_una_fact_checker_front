@@ -5,9 +5,9 @@ import { LanguageToggle } from "./components/LanguageToggle";
 import unaLogoLight from "./assets/unalogo-light.png";
 
 // ======= Config =======
-const FACT_CHECK_URL = "/api/fact_check/";
-const COMPOSE_NEWS_URL = "/api/fact_check/compose_news/";
-const COMPOSE_TWEET_URL = "/api/fact_check/compose_tweet/";
+const FACT_CHECK_URL = "/api/fact_check";
+const COMPOSE_NEWS_URL = "/api/compose_news";
+const COMPOSE_TWEET_URL = "/api/compose_tweet";
 
 // ======= i18n (AR / EN / FR) =======
 const TRANSLATIONS = {
