@@ -1,74 +1,22 @@
 export default async function handler(req, res) {
-  // Handle CORS preflight
-  if (req.method === 'OPTIONS') {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    return res.status(200).end();
-  }
-
   try {
     // Extract path from Vercel dynamic route
     const pathSegments = req.query.path || [];
     const path = Array.isArray(pathSegments) ? pathSegments.join('/') : pathSegments;
-    
-    // Build upstream URL
-    let upstreamPath = '/fact_check/';
-    if (path) {
-      upstreamPath = `/fact_check/${path}${path.endsWith('/') ? '' : '/'}`;
-    }
-    
-    const upstreamUrl = `http://62.72.22.223${upstreamPath}`;
 
-    // Create abort controller for timeout
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 120000); // 120 seconds (2 minutes)
-    
-    const init = {
+    // Build upstream URL - fact_check/compose_news or fact_check/compose_tweet
+    const endpoint = path ? `fact_check/${path}/` : 'fact_check/';
+
+    const upstream = await fetch(`http://127.0.0.1:8000/${endpoint}`, {
       method: req.method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      signal: controller.signal,
-    };
-
-    // Handle request body for POST/PUT requests
-    if (req.method !== 'GET' && req.method !== 'HEAD' && req.body) {
-      init.body = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
-    }
-
-    console.log('Proxying to:', upstreamUrl, 'Method:', req.method);
-
-    try {
-      const upstream = await fetch(upstreamUrl, init);
-      clearTimeout(timeoutId);
-      const text = await upstream.text();
-      
-      console.log('Upstream response status:', upstream.status);
-      console.log('Upstream response text:', text.substring(0, 200));
-      
-      // Try to parse as JSON, otherwise return as text
-      try {
-        const json = JSON.parse(text);
-        res.setHeader('Content-Type', 'application/json');
-        return res.status(upstream.status).json(json);
-      } catch {
-        res.setHeader('Content-Type', 'text/plain');
-        return res.status(upstream.status).send(text);
-      }
-    } catch (fetchError) {
-      clearTimeout(timeoutId);
-      if (fetchError.name === 'AbortError') {
-        throw new Error('Request timeout after 120 seconds');
-      }
-      throw fetchError;
-    }
-  } catch (err) {
-    console.error('Proxy error:', err);
-    return res.status(500).json({ 
-      ok: false,
-      error: err.message || 'Internal server error' 
+      headers: { "Content-Type": "application/json" },
+      body: req.method === "GET" ? undefined : JSON.stringify(req.body),
     });
+
+    const data = await upstream.json();
+    res.status(upstream.status).json(data);
+  } catch (err) {
+    res.status(500).json({ detail: err.message });
   }
 }
 
