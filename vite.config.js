@@ -5,11 +5,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api/review': {
-        target: 'http://62.72.22.223/fact_check',
+      '/api': {
+        target: 'http://62.72.22.223',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api\/review/, '')
+        rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
   }
