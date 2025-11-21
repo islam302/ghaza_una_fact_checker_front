@@ -681,7 +681,7 @@ function AINeonFactChecker() {
 
             {/* Specialization Note */}
             <div className="rounded-2xl bg-white border-2 border-slate-200 p-4 sm:p-5">
-              <div className={`flex items-start gap-3 ${language === 'arabic' ? '' : 'flex-row-reverse justify-end'}`}>
+              <div className="flex items-start gap-3">
                 <motion.span
                   className="text-2xl flex-shrink-0"
                   animate={{
