@@ -504,7 +504,7 @@ function AINeonFactChecker() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mx-auto pt-8 sm:pt-12 flex flex-col items-center gap-6"
+        className="mx-auto pt-8 sm:pt-12 flex flex-col items-center gap-1"
       >
         {/* UNA Logo */}
         <img
@@ -516,14 +516,15 @@ function AINeonFactChecker() {
 
         {/* Red Circle with Pulse Animation */}
         <motion.div
-          className="relative flex items-center justify-center my-4"
+          className="relative flex items-center justify-center my-3"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
           {/* Outer glow rings - multiple layers */}
           <motion.div
-            className="absolute inset-0 w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full bg-red-500/15 blur-3xl"
+            className="absolute inset-0 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full blur-3xl"
+            style={{backgroundColor: 'rgba(194, 0, 9, 0.15)'}}
             animate={{
               scale: [1, 1.1, 1],
               opacity: [0.15, 0.25, 0.15]
@@ -535,7 +536,8 @@ function AINeonFactChecker() {
             }}
           />
           <motion.div
-            className="absolute inset-0 w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-full bg-red-400/20 blur-2xl"
+            className="absolute inset-0 w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full blur-2xl"
+            style={{backgroundColor: 'rgba(230, 0, 11, 0.20)'}}
             animate={{
               scale: [1, 1.08, 1],
               opacity: [0.2, 0.3, 0.2]
@@ -548,14 +550,17 @@ function AINeonFactChecker() {
             }}
           />
 
-          {/* Main red circle - medium size */}
+          {/* Main red circle - smaller size */}
           <motion.div
-            className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-red-500 via-red-600 to-red-700 shadow-[0_10px_40px_rgba(239,68,68,0.5),0_0_80px_rgba(239,68,68,0.3)] flex items-center justify-center"
+            className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center"
+            style={{
+              background: 'linear-gradient(to bottom right, #c20009, #e6000b, #c20009)'
+            }}
             animate={{
               boxShadow: [
-                '0 10px 40px rgba(239,68,68,0.5), 0 0 80px rgba(239,68,68,0.3)',
-                '0 15px 50px rgba(239,68,68,0.7), 0 0 100px rgba(239,68,68,0.4)',
-                '0 10px 40px rgba(239,68,68,0.5), 0 0 80px rgba(239,68,68,0.3)'
+                '0 10px 40px rgba(194, 0, 9, 0.5), 0 0 80px rgba(194, 0, 9, 0.3)',
+                '0 15px 50px rgba(230, 0, 11, 0.7), 0 0 100px rgba(230, 0, 11, 0.4)',
+                '0 10px 40px rgba(194, 0, 9, 0.5), 0 0 80px rgba(194, 0, 9, 0.3)'
               ]
             }}
             transition={{
@@ -565,14 +570,17 @@ function AINeonFactChecker() {
             }}
           >
             {/* Shine effect - top left */}
-            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-white/40 via-white/20 to-transparent blur-sm" />
+            <div className="absolute top-2 left-2 sm:top-4 sm:left-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-white/40 via-white/20 to-transparent blur-sm" />
 
             {/* Inner highlight */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/25 via-transparent to-transparent" />
 
             {/* Inner glow */}
             <motion.div
-              className="absolute inset-4 rounded-full bg-gradient-to-br from-red-400/50 to-transparent"
+              className="absolute inset-4 rounded-full"
+              style={{
+                background: 'linear-gradient(to bottom right, rgba(230, 0, 11, 0.5), transparent)'
+              }}
               animate={{
                 opacity: [0.5, 0.8, 0.5]
               }}
@@ -599,8 +607,9 @@ function AINeonFactChecker() {
           {[...Array(8)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 rounded-full bg-red-400/60"
+              className="absolute w-2 h-2 rounded-full"
               style={{
+                backgroundColor: 'rgba(230, 0, 11, 0.6)',
                 left: '50%',
                 top: '50%',
               }}
@@ -620,16 +629,19 @@ function AINeonFactChecker() {
           ))}
         </motion.div>
 
-        {/* Title */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight text-center">
-          PalestiFact
-        </h1>
+        {/* Title - PalestiFact Logo */}
+        <img
+          src="/PalestiFact-logo.png"
+          alt="PalestiFact"
+          className="h-20 sm:h-24 md:h-32 lg:h-36 max-w-[85vw] object-contain select-none my-1"
+          draggable="false"
+        />
 
         {/* Subtitle in Arabic */}
-        <p className="text-sm sm:text-base text-center max-w-[90vw] sm:max-w-2xl text-slate-700 leading-relaxed px-4">
+        <p className="text-sm sm:text-base text-center max-w-[90vw] sm:max-w-2xl text-slate-700 leading-relaxed px-4 -mt-3">
           {language === 'arabic' ? (
             <>
-              أدخل خبرًا متعلقًا <span className="text-red-600 font-bold">بفلسطين</span>، وسنبحث ونحلل ونرجّع لك الحالة التحليل، والمصادر
+              تنويه: المنصة تعمل فقط على فحص وتدقيق الأخبار المرتبطة <span className="font-bold" style={{color: '#4b7544'}}>بدولة فلسطين</span> <span className="font-bold" style={{color: '#c20009'}}>والحق الفلسطيني</span>
             </>
           ) : language === 'french' ? (
             <>
@@ -637,7 +649,7 @@ function AINeonFactChecker() {
             </>
           ) : (
             <>
-              Enter a news claim related to <span className="text-red-600 font-bold">Palestine</span>, and we'll search, analyze, and return the status, analysis, and sources
+              Enter a news claim related to <span className="font-bold" style={{color: '#4b7544'}}>Palestine</span>, and we'll search, analyze, and return the status, analysis, and sources
             </>
           )}
         </p>
@@ -648,11 +660,12 @@ function AINeonFactChecker() {
         <div className="rounded-3xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-6 sm:p-8">
           {/* Fact Checker Input */}
           <div className="flex flex-col gap-4">
-            <label className="text-base font-semibold text-red-600 text-right">
+            <label className="text-base font-semibold text-right" style={{color: '#4b7544'}}>
               {T.inputLabel}
             </label>
             <textarea
-              className="min-h-[140px] sm:min-h-[160px] rounded-2xl px-4 sm:px-5 py-3 sm:py-4 focus:outline-none focus:ring-2 focus:ring-red-400 transition-all resize-none bg-white border-2 border-slate-200 text-slate-800 placeholder-slate-400 text-base"
+              className="min-h-[140px] sm:min-h-[160px] rounded-2xl px-4 sm:px-5 py-3 sm:py-4 focus:outline-none focus:ring-2 transition-all resize-none bg-white border-2 border-slate-200 text-slate-800 placeholder-slate-400 text-base"
+              style={{'--tw-ring-color': '#77b16e'}}
               placeholder={language === 'arabic' ? 'اكتب العنوان هنا' : T.placeholder}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -667,7 +680,7 @@ function AINeonFactChecker() {
             />
 
             {/* Specialization Note */}
-            <div className="rounded-2xl bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-200 p-4 sm:p-5 shadow-sm">
+            <div className="rounded-2xl bg-white border-2 border-slate-200 p-4 sm:p-5">
               <div className="flex items-start gap-3">
                 <motion.span
                   className="text-2xl flex-shrink-0"
@@ -685,7 +698,7 @@ function AINeonFactChecker() {
                   ⭐
                 </motion.span>
                 <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
-                  <span className="font-bold text-amber-800">نطاق التخصص:</span>  متخصص في التحقق من الأخبار المتعلقة بغزة وفلسطين فقط.
+                  <span className="font-bold" style={{color: '#4b7544'}}>نطاق التخصص:</span>  متخصص في التحقق من الأخبار المتعلقة بغزة وفلسطين فقط.
                 </p>
               </div>
             </div>
@@ -695,7 +708,13 @@ function AINeonFactChecker() {
               <motion.button
                 onClick={handleCheck}
                 disabled={loading}
-                className="flex-1 min-w-[200px] px-6 py-4 rounded-2xl font-bold text-lg text-white bg-gradient-to-b from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-red-400"
+                className="flex-1 min-w-[200px] px-6 py-4 rounded-2xl font-bold text-lg text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2"
+                style={{
+                  background: 'linear-gradient(to bottom, #4b7544, #77b16e)',
+                  '--tw-ring-color': '#77b16e'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to bottom, #77b16e, #4b7544)'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to bottom, #4b7544, #77b16e)'}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 aria-label={T.checkBtnAria}
@@ -747,7 +766,12 @@ function AINeonFactChecker() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                className="mt-4 rounded-2xl px-5 py-4 bg-red-50 border-2 border-red-300 text-red-800"
+                className="mt-4 rounded-2xl px-5 py-4 border-2"
+                style={{
+                  backgroundColor: 'rgba(75, 117, 68, 0.1)',
+                  borderColor: '#77b16e',
+                  color: '#4b7544'
+                }}
                 role="alert"
                 aria-live="polite"
               >
@@ -770,7 +794,11 @@ function AINeonFactChecker() {
               >
                 <div className="flex flex-col items-center gap-4">
                   <motion.div
-                    className="w-16 h-16 border-4 border-red-200 border-t-red-600 rounded-full"
+                    className="w-16 h-16 border-4 rounded-full"
+                    style={{
+                      borderColor: 'rgba(119, 177, 110, 0.3)',
+                      borderTopColor: '#4b7544'
+                    }}
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                   />
@@ -804,7 +832,7 @@ function AINeonFactChecker() {
                         result.case?.includes('صحيح') || result.case?.toLowerCase().includes('true') || result.case?.toLowerCase().includes('verified')
                           ? 'bg-green-500'
                           : result.case?.includes('خطأ') || result.case?.toLowerCase().includes('false') || result.case?.toLowerCase().includes('misleading')
-                          ? 'bg-red-500'
+                          ? 'bg-green-600'
                           : 'bg-yellow-500'
                       }`} />
                       <h3 className="text-xl font-bold text-slate-900">{T.status}</h3>
@@ -870,7 +898,13 @@ function AINeonFactChecker() {
                     <motion.button
                       onClick={handleComposeNews}
                       disabled={composingNews}
-                      className="px-8 py-3 rounded-2xl font-bold text-base text-white bg-gradient-to-b from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-red-400"
+                      className="px-8 py-3 rounded-2xl font-bold text-base text-white shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2"
+                      style={{
+                        background: 'linear-gradient(to bottom, #c20009, #e6000b)',
+                        '--tw-ring-color': '#e6000b'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to bottom, #e6000b, #c20009)'}
+                      onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to bottom, #c20009, #e6000b)'}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -895,7 +929,13 @@ function AINeonFactChecker() {
                     <motion.button
                       onClick={handleComposeTweet}
                       disabled={composingTweet}
-                      className="px-8 py-3 rounded-2xl font-bold text-base text-white bg-gradient-to-b from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-red-400"
+                      className="px-8 py-3 rounded-2xl font-bold text-base text-white shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2"
+                      style={{
+                        background: 'linear-gradient(to bottom, #4b7544, #77b16e)',
+                        '--tw-ring-color': '#77b16e'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to bottom, #77b16e, #4b7544)'}
+                      onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to bottom, #4b7544, #77b16e)'}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
