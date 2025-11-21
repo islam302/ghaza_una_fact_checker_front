@@ -645,11 +645,11 @@ function AINeonFactChecker() {
             </>
           ) : language === 'french' ? (
             <>
-              Saisissez votre information, nous allons rechercher, analyser et vous renvoyer le statut, l'analyse et les sources
+              Avis: La plateforme ne fonctionne que pour vérifier les actualités liées à <span className="font-bold" style={{color: '#4b7544'}}>l'État de Palestine</span> <span className="font-bold" style={{color: '#c20009'}}>et la cause palestinienne</span>
             </>
           ) : (
             <>
-              Enter a news claim related to <span className="font-bold" style={{color: '#4b7544'}}>Palestine</span>, and we'll search, analyze, and return the status, analysis, and sources
+              Notice: The platform only works to verify news related to <span className="font-bold" style={{color: '#4b7544'}}>the State of Palestine</span> <span className="font-bold" style={{color: '#c20009'}}>and the Palestinian cause</span>
             </>
           )}
         </p>
@@ -660,7 +660,7 @@ function AINeonFactChecker() {
         <div className="rounded-3xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-6 sm:p-8">
           {/* Fact Checker Input */}
           <div className="flex flex-col gap-4">
-            <label className="text-base font-semibold text-right" style={{color: '#4b7544'}}>
+            <label className={`text-base font-semibold ${language === 'arabic' ? 'text-right' : 'text-left'}`} style={{color: '#4b7544'}}>
               {T.inputLabel}
             </label>
             <textarea
@@ -681,7 +681,7 @@ function AINeonFactChecker() {
 
             {/* Specialization Note */}
             <div className="rounded-2xl bg-white border-2 border-slate-200 p-4 sm:p-5">
-              <div className="flex items-start gap-3">
+              <div className={`flex items-start gap-3 ${language === 'arabic' ? '' : 'flex-row-reverse justify-end'}`}>
                 <motion.span
                   className="text-2xl flex-shrink-0"
                   animate={{
@@ -698,7 +698,19 @@ function AINeonFactChecker() {
                   ⭐
                 </motion.span>
                 <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
-                  <span className="font-bold" style={{color: '#4b7544'}}>نطاق التخصص:</span>  متخصص في التحقق من الأخبار المتعلقة بغزة وفلسطين فقط.
+                  {language === 'arabic' ? (
+                    <>
+                      <span className="font-bold" style={{color: '#4b7544'}}>نطاق التخصص:</span> <span className="font-bold" style={{color: '#4b7544'}}>دولة فلسطين</span> . <span className="font-bold" style={{color: '#c20009'}}>القضية الفلسطينية</span>
+                    </>
+                  ) : language === 'french' ? (
+                    <>
+                      <span className="font-bold" style={{color: '#4b7544'}}>Domaine de spécialisation:</span> <span className="font-bold" style={{color: '#4b7544'}}>État de Palestine</span> . <span className="font-bold" style={{color: '#c20009'}}>Cause palestinienne</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="font-bold" style={{color: '#4b7544'}}>Scope of Specialization:</span> <span className="font-bold" style={{color: '#4b7544'}}>State of Palestine</span> . <span className="font-bold" style={{color: '#c20009'}}>Palestinian Cause</span>
+                    </>
+                  )}
                 </p>
               </div>
             </div>
