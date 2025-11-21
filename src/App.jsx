@@ -681,7 +681,7 @@ function AINeonFactChecker() {
 
             {/* Specialization Note */}
             <div className="rounded-2xl bg-white border-2 border-slate-200 p-4 sm:p-5">
-              <div className="flex items-start gap-3">
+              <div className={`flex items-start gap-3 ${language === 'arabic' ? '' : 'flex-row-reverse'}`}>
                 <motion.span
                   className="text-2xl flex-shrink-0"
                   animate={{
@@ -697,7 +697,7 @@ function AINeonFactChecker() {
                 >
                   ⭐
                 </motion.span>
-                <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
+                <p className={`text-sm sm:text-base text-slate-800 leading-relaxed font-medium ${language === 'arabic' ? '' : 'text-left'}`}>
                   {language === 'arabic' ? (
                     <>
                       <span className="font-bold" style={{color: '#4b7544'}}>نطاق التخصص:</span> <span className="font-bold" style={{color: '#4b7544'}}>دولة فلسطين</span> . <span className="font-bold" style={{color: '#c20009'}}>القضية الفلسطينية</span>
