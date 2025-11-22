@@ -310,7 +310,9 @@ function AINeonFactChecker() {
       }
 
       if (!data?.ok) {
-        throw new Error(data?.error || T.errorFetch);
+        setErr(data?.error || T.errorFetch);
+        setLoading(false);
+        return;
       }
 
       setResult({
@@ -381,7 +383,9 @@ function AINeonFactChecker() {
           news_article: data.news_article
         }));
       } else {
-        throw new Error(data?.error || T.errorFetch);
+        setErr(data?.error || T.errorFetch);
+        setComposingNews(false);
+        return;
       }
     } catch (e) {
       console.error("Error in handleComposeNews:", e);
@@ -443,7 +447,9 @@ function AINeonFactChecker() {
           x_tweet: data.x_tweet
         }));
       } else {
-        throw new Error(data?.error || T.errorFetch);
+        setErr(data?.error || T.errorFetch);
+        setComposingTweet(false);
+        return;
       }
     } catch (e) {
       console.error("Error in handleComposeTweet:", e);
