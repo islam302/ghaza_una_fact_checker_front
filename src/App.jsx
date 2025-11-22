@@ -288,10 +288,6 @@ function AINeonFactChecker() {
 
       console.log("📡 Response status:", res.status, res.statusText);
 
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-      }
-
       const text = await res.text();
       console.log("📄 Response text:", text);
 
@@ -356,10 +352,6 @@ function AINeonFactChecker() {
 
       console.log("📡 News response status:", res.status, res.statusText);
 
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-      }
-
       const text = await res.text();
       console.log("📄 News response text:", text);
 
@@ -419,10 +411,6 @@ function AINeonFactChecker() {
       });
 
       console.log("📡 Tweet response status:", res.status, res.statusText);
-
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-      }
 
       const text = await res.text();
       console.log("📄 Tweet response text:", text);
