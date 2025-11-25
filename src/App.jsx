@@ -488,7 +488,7 @@ function AINeonFactChecker() {
 
       {/* Language Toggle */}
       <div
-        className="absolute z-20 top-2 left-1 xs:left-2 sm:left-4 md:left-6 scale-[0.6] xs:scale-[0.7] sm:scale-90 md:scale-100"
+        className="absolute z-20 top-2 left-1 xs:left-2 sm:left-4 md:left-6"
         style={{ paddingTop: 'max(env(safe-area-inset-top), 0.5rem)' }}
       >
         <LanguageToggle />
