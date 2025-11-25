@@ -251,6 +251,7 @@ function renderTalkSmart(talk) {
 function AINeonFactChecker() {
   const { isArabic, language } = useLanguage();
   const T = TRANSLATIONS[language] || TRANSLATIONS.english;
+
   const [query, setQuery] = useState("");
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
