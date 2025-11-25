@@ -633,7 +633,7 @@ function AINeonFactChecker() {
         />
 
         {/* Subtitle in Arabic */}
-        <p className="text-xs xs:text-sm sm:text-base md:text-lg text-center max-w-[95vw] xs:max-w-[90vw] sm:max-w-xl md:max-w-2xl text-slate-700 leading-relaxed px-2 xs:px-3 sm:px-4 -mt-2 xs:-mt-3">
+        <p className="text-xs xs:text-sm sm:text-base md:text-lg text-center max-w-[95vw] xs:max-w-[90vw] sm:max-w-2xl md:max-w-4xl lg:max-w-5xl text-slate-700 leading-relaxed px-2 xs:px-3 sm:px-4 -mt-2 xs:-mt-3">
           {language === 'arabic' ? (
             <>
               تنويه: المنصة تعمل فقط على فحص وتدقيق الأخبار المرتبطة <span className="font-bold" style={{color: '#4b7544'}}>بدولة فلسطين</span> <span className="font-bold text-slate-900">و</span> <span className="font-bold" style={{color: '#c20009'}}>الحق الفلسطيني</span>
