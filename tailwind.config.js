@@ -6,6 +6,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'xs': '375px',    // Extra small devices (small phones)
+      'sm': '640px',    // Small devices (large phones)
+      'md': '768px',    // Medium devices (tablets)
+      'lg': '1024px',   // Large devices (laptops/desktops)
+      'xl': '1280px',   // Extra large devices (large desktops)
+      '2xl': '1536px',  // 2X large devices (larger desktops)
+    },
     extend: {
       fontFamily: {
         sans: ['Tajawal', 'ui-sans-serif', 'system-ui'],

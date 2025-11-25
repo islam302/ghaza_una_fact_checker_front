@@ -483,12 +483,12 @@ function AINeonFactChecker() {
   const renderedTalk = useMemo(() => renderTalkSmart(result?.talk || ""), [result?.talk]);
 
   return (
-    <div dir={isArabic ? 'rtl' : 'ltr'} className="min-h-screen relative overflow-hidden text-slate-800 px-3 sm:px-4">
+    <div dir={isArabic ? 'rtl' : 'ltr'} className="min-h-screen relative overflow-hidden text-slate-800 px-2 xs:px-3 sm:px-4 md:px-6 lg:px-8 pb-8 sm:pb-12">
 
       {/* Language Toggle */}
       <div
-        className="absolute z-20 top-2 left-2 sm:top-6 sm:left-6 scale-75 sm:scale-100"
-        style={{ paddingTop: 'max(env(safe-area-inset-top), 0.25rem)' }}
+        className="absolute z-20 top-2 left-1 xs:left-2 sm:left-4 md:left-6 scale-[0.6] xs:scale-[0.7] sm:scale-90 md:scale-100"
+        style={{ paddingTop: 'max(env(safe-area-inset-top), 0.5rem)' }}
       >
         <LanguageToggle />
       </div>
@@ -498,26 +498,26 @@ function AINeonFactChecker() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mx-auto pt-8 sm:pt-12 flex flex-col items-center gap-1"
+        className="mx-auto pt-10 xs:pt-12 sm:pt-14 md:pt-16 flex flex-col items-center gap-1"
       >
         {/* UNA Logo */}
         <img
           src={unaLogoLight}
           alt={T.logoAlt}
-          className="h-16 sm:h-20 md:h-24 lg:h-28 max-w-[85vw] object-contain select-none"
+          className="h-12 xs:h-14 sm:h-18 md:h-22 lg:h-26 xl:h-28 max-w-[80vw] sm:max-w-[85vw] object-contain select-none"
           draggable="false"
         />
 
         {/* Red Circle with Pulse Animation */}
         <motion.div
-          className="relative flex items-center justify-center my-3"
+          className="relative flex items-center justify-center my-2 xs:my-3 sm:my-4"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
           {/* Outer glow rings - multiple layers */}
           <motion.div
-            className="absolute inset-0 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full blur-3xl"
+            className="absolute inset-0 w-20 h-20 xs:w-24 xs:h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full blur-3xl"
             style={{backgroundColor: 'rgba(194, 0, 9, 0.15)'}}
             animate={{
               scale: [1, 1.1, 1],
@@ -530,7 +530,7 @@ function AINeonFactChecker() {
             }}
           />
           <motion.div
-            className="absolute inset-0 w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full blur-2xl"
+            className="absolute inset-0 w-16 h-16 xs:w-20 xs:h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full blur-2xl"
             style={{backgroundColor: 'rgba(230, 0, 11, 0.20)'}}
             animate={{
               scale: [1, 1.08, 1],
@@ -546,7 +546,7 @@ function AINeonFactChecker() {
 
           {/* Main red circle - smaller size */}
           <motion.div
-            className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center"
+            className="relative w-14 h-14 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full flex items-center justify-center"
             style={{
               background: 'linear-gradient(to bottom right, #c20009, #e6000b, #c20009)'
             }}
@@ -564,7 +564,7 @@ function AINeonFactChecker() {
             }}
           >
             {/* Shine effect - top left */}
-            <div className="absolute top-2 left-2 sm:top-4 sm:left-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-white/40 via-white/20 to-transparent blur-sm" />
+            <div className="absolute top-1 left-1 xs:top-2 xs:left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-white/40 via-white/20 to-transparent blur-sm" />
 
             {/* Inner highlight */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/25 via-transparent to-transparent" />
@@ -627,15 +627,15 @@ function AINeonFactChecker() {
         <img
           src="/PalestiFact-logo.png"
           alt="PalestiFact"
-          className="h-20 sm:h-24 md:h-32 lg:h-36 max-w-[85vw] object-contain select-none my-1"
+          className="h-20 xs:h-24 sm:h-28 md:h-36 lg:h-44 xl:h-48 max-w-[85vw] object-contain select-none my-1"
           draggable="false"
         />
 
         {/* Subtitle in Arabic */}
-        <p className="text-sm sm:text-base text-center max-w-[90vw] sm:max-w-2xl text-slate-700 leading-relaxed px-4 -mt-3">
+        <p className="text-xs xs:text-sm sm:text-base md:text-lg text-center max-w-[95vw] xs:max-w-[90vw] sm:max-w-xl md:max-w-2xl text-slate-700 leading-relaxed px-2 xs:px-3 sm:px-4 -mt-2 xs:-mt-3">
           {language === 'arabic' ? (
             <>
-              تنويه: المنصة تعمل فقط على فحص وتدقيق الأخبار المرتبطة <span className="font-bold" style={{color: '#4b7544'}}>بدولة فلسطين</span> <span className="font-bold" style={{color: '#c20009'}}>والحق الفلسطيني</span>
+              تنويه: المنصة تعمل فقط على فحص وتدقيق الأخبار المرتبطة <span className="font-bold" style={{color: '#4b7544'}}>بدولة فلسطين</span> <span className="font-bold text-slate-900">و</span> <span className="font-bold" style={{color: '#c20009'}}>الحق الفلسطيني</span>
             </>
           ) : language === 'french' ? (
             <>
@@ -650,15 +650,15 @@ function AINeonFactChecker() {
       </motion.div>
 
       {/* Main card */}
-      <div className="relative z-10 mx-auto mt-6 sm:mt-8 w-full max-w-3xl">
-        <div className="rounded-3xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-6 sm:p-8">
+      <div className="relative z-10 mx-auto mt-4 xs:mt-5 sm:mt-6 md:mt-8 w-full max-w-[95vw] xs:max-w-[90vw] sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
+        <div className="rounded-2xl xs:rounded-3xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-3 xs:p-4 sm:p-6 md:p-8">
           {/* Fact Checker Input */}
-          <div className="flex flex-col gap-4">
-            <label className={`text-base font-semibold ${language === 'arabic' ? 'text-right' : 'text-left'}`} style={{color: '#4b7544'}}>
+          <div className="flex flex-col gap-2 xs:gap-3 sm:gap-4">
+            <label className={`text-sm xs:text-base md:text-lg font-semibold ${language === 'arabic' ? 'text-right' : 'text-left'}`} style={{color: '#4b7544'}}>
               {T.inputLabel}
             </label>
             <textarea
-              className="min-h-[140px] sm:min-h-[160px] rounded-2xl px-4 sm:px-5 py-3 sm:py-4 focus:outline-none focus:ring-2 transition-all resize-none bg-white border-2 border-slate-200 text-slate-800 placeholder-slate-400 text-base"
+              className="min-h-[100px] xs:min-h-[120px] sm:min-h-[140px] md:min-h-[160px] rounded-xl xs:rounded-2xl px-3 xs:px-4 sm:px-5 py-2.5 xs:py-3 sm:py-4 focus:outline-none focus:ring-2 transition-all resize-none bg-white border-2 border-slate-200 text-slate-800 placeholder-slate-400 text-sm xs:text-base"
               style={{'--tw-ring-color': '#77b16e'}}
               placeholder={language === 'arabic' ? 'اكتب العنوان هنا' : T.placeholder}
               value={query}
@@ -674,10 +674,10 @@ function AINeonFactChecker() {
             />
 
             {/* Specialization Note */}
-            <div className="rounded-2xl bg-white border-2 border-slate-200 p-4 sm:p-5">
-              <div className={`flex items-start gap-3 ${language === 'arabic' ? '' : 'flex-row-reverse'}`}>
+            <div className="rounded-xl xs:rounded-2xl bg-white border-2 border-slate-200 p-2.5 xs:p-3 sm:p-4 md:p-5">
+              <div className={`flex items-start gap-2 xs:gap-3 ${language === 'arabic' ? '' : 'flex-row-reverse'}`}>
                 <motion.span
-                  className="text-2xl flex-shrink-0"
+                  className="text-lg xs:text-xl sm:text-2xl flex-shrink-0"
                   animate={{
                     rotate: [0, -10, 10, -10, 10, 0],
                     scale: [1, 1.1, 1, 1.1, 1],
@@ -691,10 +691,10 @@ function AINeonFactChecker() {
                 >
                   ⭐
                 </motion.span>
-                <p className={`text-sm sm:text-base text-slate-800 leading-relaxed font-medium ${language === 'arabic' ? '' : 'text-left'}`}>
+                <p className={`text-xs xs:text-sm sm:text-base md:text-lg text-slate-800 leading-relaxed font-medium ${language === 'arabic' ? '' : 'text-left'}`}>
                   {language === 'arabic' ? (
                     <>
-                      <span className="font-bold" style={{color: '#4b7544'}}>نطاق التخصص:</span> <span className="font-bold" style={{color: '#4b7544'}}>دولة فلسطين</span> . <span className="font-bold" style={{color: '#c20009'}}>القضية الفلسطينية</span>
+                      <span className="font-bold" style={{color: '#4b7544'}}>نطاق التخصص:</span> <span className="font-bold" style={{color: '#4b7544'}}>دولة فلسطين</span> <span className="font-bold text-slate-900">و</span> <span className="font-bold" style={{color: '#c20009'}}>الحق الفلسطيني</span>
                     </>
                   ) : language === 'french' ? (
                     <>
@@ -709,12 +709,12 @@ function AINeonFactChecker() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 flex-wrap justify-center">
-              {/* Check Now Button - Red */}
+            <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-2 xs:gap-3 flex-wrap justify-center">
+              {/* Check Now Button - Green */}
               <motion.button
                 onClick={handleCheck}
                 disabled={loading}
-                className="flex-1 min-w-[200px] px-6 py-4 rounded-2xl font-bold text-lg text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2"
+                className="flex-1 min-w-0 xs:min-w-[160px] sm:min-w-[180px] md:min-w-[200px] px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 rounded-xl xs:rounded-2xl font-bold text-sm xs:text-base sm:text-lg text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 active:scale-[0.98]"
                 style={{
                   background: 'linear-gradient(to bottom, #4b7544, #77b16e)',
                   '--tw-ring-color': '#77b16e'
@@ -725,11 +725,11 @@ function AINeonFactChecker() {
                 whileTap={{ scale: 0.98 }}
                 aria-label={T.checkBtnAria}
               >
-                <span className="flex items-center justify-center gap-2">
+                <span className="flex items-center justify-center gap-1.5 xs:gap-2">
                   {loading ? (
                     <>
                       <motion.div
-                        className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
+                        className="w-4 h-4 xs:w-5 xs:h-5 border-2 border-white/30 border-t-white rounded-full"
                         animate={{ rotate: 360 }}
                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                       />
@@ -748,13 +748,13 @@ function AINeonFactChecker() {
               {result && (
                 <motion.button
                   onClick={copyAll}
-                  className="flex-1 min-w-[200px] px-6 py-4 rounded-2xl font-bold text-lg text-slate-700 bg-slate-100 hover:bg-slate-200 shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                  className="flex-1 min-w-0 xs:min-w-[160px] sm:min-w-[180px] md:min-w-[200px] px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 rounded-xl xs:rounded-2xl font-bold text-sm xs:text-base sm:text-lg text-slate-700 bg-slate-100 hover:bg-slate-200 shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-300 active:scale-[0.98]"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   aria-label={T.copyVerificationAria}
                 >
-                  <span className="flex items-center justify-center gap-2">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <span className="flex items-center justify-center gap-1.5 xs:gap-2">
+                    <svg className="w-4 h-4 xs:w-[18px] xs:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                     </svg>
@@ -772,7 +772,7 @@ function AINeonFactChecker() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                className="mt-4 rounded-2xl px-5 py-4 border-2"
+                className="mt-3 xs:mt-4 rounded-xl xs:rounded-2xl px-3 xs:px-4 sm:px-5 py-3 xs:py-4 border-2"
                 style={{
                   backgroundColor: 'rgba(75, 117, 68, 0.1)',
                   borderColor: '#77b16e',
@@ -781,9 +781,9 @@ function AINeonFactChecker() {
                 role="alert"
                 aria-live="polite"
               >
-                <div className="flex items-start gap-3">
-                  <span className="text-xl">⚠️</span>
-                  <p className="text-base font-semibold leading-relaxed">{err}</p>
+                <div className="flex items-start gap-2 xs:gap-3">
+                  <span className="text-lg xs:text-xl">⚠️</span>
+                  <p className="text-sm xs:text-base font-semibold leading-relaxed">{err}</p>
                 </div>
               </motion.div>
             )}
@@ -796,11 +796,11 @@ function AINeonFactChecker() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="mt-6 text-center py-8"
+                className="mt-4 xs:mt-5 sm:mt-6 text-center py-6 xs:py-8"
               >
-                <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-col items-center gap-3 xs:gap-4">
                   <motion.div
-                    className="w-16 h-16 border-4 rounded-full"
+                    className="w-12 h-12 xs:w-14 xs:h-14 sm:w-16 sm:h-16 border-4 rounded-full"
                     style={{
                       borderColor: 'rgba(119, 177, 110, 0.3)',
                       borderTopColor: '#4b7544'
@@ -808,7 +808,7 @@ function AINeonFactChecker() {
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                   />
-                  <p className="text-slate-600 font-medium">{T.loaderLine}</p>
+                  <p className="text-xs xs:text-sm sm:text-base text-slate-600 font-medium px-2">{T.loaderLine}</p>
                 </div>
               </motion.div>
             )}
@@ -822,44 +822,44 @@ function AINeonFactChecker() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="mt-8 grid gap-5"
+                className="mt-5 xs:mt-6 sm:mt-8 grid gap-3 xs:gap-4 sm:gap-5"
               >
                 {/* Case Status with Colored Circle - Only show if case exists */}
                 {result.case && (
                   <motion.div
-                    className="rounded-2xl p-6 bg-white border-2 border-slate-200 shadow-sm"
+                    className="rounded-xl xs:rounded-2xl p-4 xs:p-5 sm:p-6 bg-white border-2 border-slate-200 shadow-sm"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 }}
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 xs:gap-3 sm:gap-4">
                       {/* Colored Circle Indicator */}
-                      <div className={`w-5 h-5 rounded-full ${
+                      <div className={`w-4 h-4 xs:w-5 xs:h-5 rounded-full flex-shrink-0 ${
                         result.case?.includes('صحيح') || result.case?.toLowerCase().includes('true') || result.case?.toLowerCase().includes('verified')
                           ? 'bg-green-500'
                           : result.case?.includes('خطأ') || result.case?.toLowerCase().includes('false') || result.case?.toLowerCase().includes('misleading')
                           ? 'bg-green-600'
                           : 'bg-yellow-500'
                       }`} />
-                      <h3 className="text-xl font-bold text-slate-900">{T.status}</h3>
+                      <h3 className="text-base xs:text-lg sm:text-xl font-bold text-slate-900">{T.status}</h3>
                     </div>
-                    <p className="mt-3 text-lg font-semibold text-slate-700 pr-9">{result.case}</p>
+                    <p className="mt-2 xs:mt-3 text-sm xs:text-base sm:text-lg font-semibold text-slate-700 ps-6 xs:ps-7 sm:ps-9">{result.case}</p>
                   </motion.div>
                 )}
 
                 {/* Analysis - Only show if talk exists */}
                 {result.talk && (
                   <motion.div
-                    className="rounded-2xl p-6 bg-white border-2 border-slate-200 shadow-sm"
+                    className="rounded-xl xs:rounded-2xl p-4 xs:p-5 sm:p-6 bg-white border-2 border-slate-200 shadow-sm"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
                   >
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-5 h-5 rounded-full bg-blue-500" />
-                      <h3 className="text-xl font-bold text-slate-900">{T.analysis}</h3>
+                    <div className="flex items-center gap-2 xs:gap-3 sm:gap-4 mb-3 xs:mb-4">
+                      <div className="w-4 h-4 xs:w-5 xs:h-5 rounded-full bg-blue-500 flex-shrink-0" />
+                      <h3 className="text-base xs:text-lg sm:text-xl font-bold text-slate-900">{T.analysis}</h3>
                     </div>
-                    <div className="prose max-w-none leading-relaxed text-base text-slate-700 pr-9">
+                    <div className="prose max-w-none leading-relaxed text-sm xs:text-base text-slate-700 ps-6 xs:ps-7 sm:ps-9">
                       {renderedTalk}
                     </div>
                   </motion.div>
@@ -868,17 +868,17 @@ function AINeonFactChecker() {
                 {/* Sources - Only show if sources exist */}
                 {result.sources && result.sources.length > 0 && (
                   <motion.div
-                    className="rounded-2xl p-6 bg-white border-2 border-slate-200 shadow-sm"
+                    className="rounded-xl xs:rounded-2xl p-4 xs:p-5 sm:p-6 bg-white border-2 border-slate-200 shadow-sm"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                   >
-                    <div className="flex items-center gap-4 mb-5">
-                      <div className="w-5 h-5 rounded-full bg-purple-500" />
-                      <h3 className="text-xl font-bold text-slate-900">{T.sources}</h3>
+                    <div className="flex items-center gap-2 xs:gap-3 sm:gap-4 mb-3 xs:mb-4 sm:mb-5">
+                      <div className="w-4 h-4 xs:w-5 xs:h-5 rounded-full bg-purple-500 flex-shrink-0" />
+                      <h3 className="text-base xs:text-lg sm:text-xl font-bold text-slate-900">{T.sources}</h3>
                     </div>
 
-                    <ul className="grid gap-3 grid-cols-1">
+                    <ul className="grid gap-2 xs:gap-3 grid-cols-1">
                       {result.sources.map((s, i) => (
                         <motion.li
                           key={i}
@@ -895,7 +895,7 @@ function AINeonFactChecker() {
 
                 {/* Compose Actions */}
                 <motion.div
-                  className="flex gap-3 flex-wrap justify-center mt-2"
+                  className="flex flex-col xs:flex-row gap-2 xs:gap-3 flex-wrap justify-center mt-1 xs:mt-2"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
@@ -904,7 +904,7 @@ function AINeonFactChecker() {
                     <motion.button
                       onClick={handleComposeNews}
                       disabled={composingNews}
-                      className="px-8 py-3 rounded-2xl font-bold text-base text-white shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2"
+                      className="px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 rounded-xl xs:rounded-2xl font-bold text-sm xs:text-base text-white shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 active:scale-[0.98]"
                       style={{
                         background: 'linear-gradient(to bottom, #c20009, #e6000b)',
                         '--tw-ring-color': '#e6000b'
@@ -914,11 +914,11 @@ function AINeonFactChecker() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center justify-center gap-1.5 xs:gap-2">
                         {composingNews ? (
                           <>
                             <motion.div
-                              className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                              className="w-3.5 h-3.5 xs:w-4 xs:h-4 border-2 border-white/30 border-t-white rounded-full"
                               animate={{ rotate: 360 }}
                               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                             />
@@ -935,7 +935,7 @@ function AINeonFactChecker() {
                     <motion.button
                       onClick={handleComposeTweet}
                       disabled={composingTweet}
-                      className="px-8 py-3 rounded-2xl font-bold text-base text-white shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2"
+                      className="px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 rounded-xl xs:rounded-2xl font-bold text-sm xs:text-base text-white shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 active:scale-[0.98]"
                       style={{
                         background: 'linear-gradient(to bottom, #4b7544, #77b16e)',
                         '--tw-ring-color': '#77b16e'
@@ -945,11 +945,11 @@ function AINeonFactChecker() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center justify-center gap-1.5 xs:gap-2">
                         {composingTweet ? (
                           <>
                             <motion.div
-                              className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                              className="w-3.5 h-3.5 xs:w-4 xs:h-4 border-2 border-white/30 border-t-white rounded-full"
                               animate={{ rotate: 360 }}
                               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                             />
@@ -966,15 +966,15 @@ function AINeonFactChecker() {
                 {/* Generated News Article */}
                 {result.news_article && (
                   <motion.div
-                    className="rounded-2xl p-6 bg-white border-2 border-slate-200 shadow-sm"
+                    className="rounded-xl xs:rounded-2xl p-4 xs:p-5 sm:p-6 bg-white border-2 border-slate-200 shadow-sm"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
                   >
-                    <div className="flex items-center justify-between gap-4 mb-4">
-                      <div className="flex items-center gap-4">
-                        <div className="w-5 h-5 rounded-full bg-green-500" />
-                        <h3 className="text-xl font-bold text-slate-900">{T.generatedNews}</h3>
+                    <div className="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2 xs:gap-4 mb-3 xs:mb-4">
+                      <div className="flex items-center gap-2 xs:gap-3 sm:gap-4">
+                        <div className="w-4 h-4 xs:w-5 xs:h-5 rounded-full bg-green-500 flex-shrink-0" />
+                        <h3 className="text-base xs:text-lg sm:text-xl font-bold text-slate-900">{T.generatedNews}</h3>
                       </div>
                       <motion.button
                         onClick={(e) => {
@@ -987,7 +987,7 @@ function AINeonFactChecker() {
                             }, 2000);
                           });
                         }}
-                        className="px-4 py-2 rounded-xl font-semibold text-sm text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                        className="px-3 xs:px-4 py-1.5 xs:py-2 rounded-lg xs:rounded-xl font-semibold text-xs xs:text-sm text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-300 active:scale-[0.98]"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label={T.copyGeneratedNewsAria}
@@ -995,8 +995,8 @@ function AINeonFactChecker() {
                         {T.buttonCopyNewsText}
                       </motion.button>
                     </div>
-                    <div className="rounded-xl p-5 bg-slate-50 border border-slate-200">
-                      <div className="prose max-w-none leading-relaxed text-base text-slate-700 whitespace-pre-line">
+                    <div className="rounded-lg xs:rounded-xl p-3 xs:p-4 sm:p-5 bg-slate-50 border border-slate-200">
+                      <div className="prose max-w-none leading-relaxed text-sm xs:text-base text-slate-700 whitespace-pre-line">
                         {result.news_article}
                       </div>
                     </div>
@@ -1006,15 +1006,15 @@ function AINeonFactChecker() {
                 {/* Generated Tweet */}
                 {result.x_tweet && (
                   <motion.div
-                    className="rounded-2xl p-6 bg-white border-2 border-slate-200 shadow-sm"
+                    className="rounded-xl xs:rounded-2xl p-4 xs:p-5 sm:p-6 bg-white border-2 border-slate-200 shadow-sm"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
                   >
-                    <div className="flex items-center justify-between gap-4 mb-4">
-                      <div className="flex items-center gap-4">
-                        <div className="w-5 h-5 rounded-full bg-blue-500" />
-                        <h3 className="text-xl font-bold text-slate-900">{T.tweetHeading}</h3>
+                    <div className="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2 xs:gap-4 mb-3 xs:mb-4">
+                      <div className="flex items-center gap-2 xs:gap-3 sm:gap-4">
+                        <div className="w-4 h-4 xs:w-5 xs:h-5 rounded-full bg-blue-500 flex-shrink-0" />
+                        <h3 className="text-base xs:text-lg sm:text-xl font-bold text-slate-900">{T.tweetHeading}</h3>
                       </div>
                       <motion.button
                         onClick={(e) => {
@@ -1027,7 +1027,7 @@ function AINeonFactChecker() {
                             }, 2000);
                           });
                         }}
-                        className="px-4 py-2 rounded-xl font-semibold text-sm text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                        className="px-3 xs:px-4 py-1.5 xs:py-2 rounded-lg xs:rounded-xl font-semibold text-xs xs:text-sm text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-300 active:scale-[0.98]"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label={T.copyGeneratedTweetAria}
@@ -1035,17 +1035,17 @@ function AINeonFactChecker() {
                         {T.buttonCopyTweetText}
                       </motion.button>
                     </div>
-                    <div className="rounded-xl p-4 bg-slate-50 border border-slate-200">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">
+                    <div className="rounded-lg xs:rounded-xl p-3 xs:p-4 bg-slate-50 border border-slate-200">
+                      <div className="flex items-center gap-2 xs:gap-3 mb-2 xs:mb-3">
+                        <div className="w-8 h-8 xs:w-10 xs:h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-sm xs:text-base">
                           F
                         </div>
                         <div>
-                          <div className="font-bold text-slate-900">{T.tweetCardTitle}</div>
-                          <div className="text-sm text-slate-500">@factchecker</div>
+                          <div className="font-bold text-sm xs:text-base text-slate-900">{T.tweetCardTitle}</div>
+                          <div className="text-xs xs:text-sm text-slate-500">@factchecker</div>
                         </div>
                       </div>
-                      <div className="text-base leading-relaxed text-slate-900">
+                      <div className="text-sm xs:text-base leading-relaxed text-slate-900">
                         {result.x_tweet}
                       </div>
                     </div>
@@ -1095,19 +1095,19 @@ function LinkChip({ href, label, big = false }) {
       href={abs}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group inline-flex items-center gap-3 rounded-xl transition-all px-4 py-3 ${big ? "w-full" : ""} border-2 border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 shadow-sm`}
+      className={`group inline-flex items-center gap-2 xs:gap-3 rounded-lg xs:rounded-xl transition-all px-3 xs:px-4 py-2.5 xs:py-3 ${big ? "w-full" : ""} border-2 border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 shadow-sm active:scale-[0.99]`}
       title={text}
     >
       <img
         src={faviconUrl(domain)}
         alt=""
-        className={`${big ? "w-5 h-5" : "w-4 h-4"} rounded flex-shrink-0`}
+        className={`${big ? "w-4 h-4 xs:w-5 xs:h-5" : "w-3.5 h-3.5 xs:w-4 xs:h-4"} rounded flex-shrink-0`}
         onError={(e) => (e.currentTarget.style.display = "none")}
       />
-      <span className={`truncate ${big ? "text-base font-medium" : "text-sm"} text-slate-700`}>
+      <span className={`truncate ${big ? "text-sm xs:text-base font-medium" : "text-xs xs:text-sm"} text-slate-700`}>
         {text}
       </span>
-      <span className="ms-auto opacity-0 group-hover:opacity-100 transition text-blue-600 flex-shrink-0">
+      <span className="ms-auto opacity-0 group-hover:opacity-100 transition text-blue-600 flex-shrink-0 text-sm xs:text-base">
         ↗
       </span>
     </a>
