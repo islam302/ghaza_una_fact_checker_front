@@ -499,7 +499,7 @@ function AINeonFactChecker() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mx-auto pt-10 xs:pt-12 sm:pt-14 md:pt-16 flex flex-col items-center gap-1"
+        className="mx-auto pt-12 xs:pt-14 sm:pt-16 md:pt-18 flex flex-col items-center gap-1"
       >
         {/* UNA Logo */}
         <img
@@ -511,7 +511,7 @@ function AINeonFactChecker() {
 
         {/* Red Circle with Pulse Animation */}
         <motion.div
-          className="relative flex items-center justify-center my-2 xs:my-3 sm:my-4"
+          className="relative flex items-center justify-center my-4 xs:my-5 sm:my-6 md:my-7"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -628,12 +628,12 @@ function AINeonFactChecker() {
         <img
           src="/PalestiFact-logo.png"
           alt="PalestiFact"
-          className="h-20 xs:h-24 sm:h-28 md:h-36 lg:h-44 xl:h-48 max-w-[85vw] object-contain select-none my-1"
+          className="h-20 xs:h-24 sm:h-28 md:h-36 lg:h-44 xl:h-48 max-w-[85vw] object-contain select-none my-3 xs:my-4 sm:my-5"
           draggable="false"
         />
 
         {/* Subtitle in Arabic */}
-        <p className="text-xs xs:text-sm sm:text-base md:text-lg text-center max-w-[95vw] xs:max-w-[90vw] sm:max-w-2xl md:max-w-4xl lg:max-w-5xl text-slate-700 leading-relaxed px-2 xs:px-3 sm:px-4 -mt-2 xs:-mt-3">
+        <p className="text-xs xs:text-sm sm:text-base md:text-lg text-center max-w-[95vw] xs:max-w-[90vw] sm:max-w-2xl md:max-w-4xl lg:max-w-5xl text-slate-700 leading-relaxed px-2 xs:px-3 sm:px-4 mt-2 xs:mt-1 sm:mt-0">
           {language === 'arabic' ? (
             <>
               تنويه: المنصة تعمل فقط على فحص وتدقيق الأخبار المرتبطة <span className="font-bold" style={{color: '#4b7544'}}>بدولة فلسطين</span> <span className="font-bold text-slate-900">و</span> <span className="font-bold" style={{color: '#c20009'}}>الحق الفلسطيني</span>
@@ -651,15 +651,15 @@ function AINeonFactChecker() {
       </motion.div>
 
       {/* Main card */}
-      <div className="relative z-10 mx-auto mt-4 xs:mt-5 sm:mt-6 md:mt-8 w-full max-w-[95vw] xs:max-w-[90vw] sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-        <div className="rounded-2xl xs:rounded-3xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-3 xs:p-4 sm:p-6 md:p-8">
+      <div className="relative z-10 mx-auto mt-6 xs:mt-7 sm:mt-8 md:mt-10 w-full max-w-[92vw] xs:max-w-[88vw] sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
+        <div className="rounded-2xl xs:rounded-3xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-5 xs:p-6 sm:p-7 md:p-9">
           {/* Fact Checker Input */}
-          <div className="flex flex-col gap-2 xs:gap-3 sm:gap-4">
+          <div className="flex flex-col gap-4 xs:gap-5 sm:gap-6">
             <label className={`text-sm xs:text-base md:text-lg font-semibold ${language === 'arabic' ? 'text-right' : 'text-left'}`} style={{color: '#4b7544'}}>
               {T.inputLabel}
             </label>
             <textarea
-              className="min-h-[100px] xs:min-h-[120px] sm:min-h-[140px] md:min-h-[160px] rounded-xl xs:rounded-2xl px-3 xs:px-4 sm:px-5 py-2.5 xs:py-3 sm:py-4 focus:outline-none focus:ring-2 transition-all resize-none bg-white border-2 border-slate-200 text-slate-800 placeholder-slate-400 text-sm xs:text-base"
+              className="min-h-[120px] xs:min-h-[140px] sm:min-h-[160px] md:min-h-[180px] rounded-xl xs:rounded-2xl px-4 xs:px-5 sm:px-6 py-3.5 xs:py-4 sm:py-5 focus:outline-none focus:ring-2 transition-all resize-none bg-white border-2 border-slate-200 text-slate-800 placeholder-slate-400 text-sm xs:text-base"
               style={{'--tw-ring-color': '#77b16e'}}
               placeholder={language === 'arabic' ? 'اكتب العنوان هنا' : T.placeholder}
               value={query}
@@ -675,8 +675,8 @@ function AINeonFactChecker() {
             />
 
             {/* Specialization Note */}
-            <div className="rounded-xl xs:rounded-2xl bg-white border-2 border-slate-200 p-2.5 xs:p-3 sm:p-4 md:p-5">
-              <div className={`flex items-start gap-2 xs:gap-3 ${language === 'arabic' ? '' : 'flex-row-reverse'}`}>
+            <div className="rounded-xl xs:rounded-2xl bg-white border-2 border-slate-200 p-4 xs:p-5 sm:p-6 md:p-7">
+              <div className={`flex items-start gap-3 xs:gap-4 sm:gap-5 ${language === 'arabic' ? '' : 'flex-row-reverse'}`}>
                 <motion.span
                   className="text-lg xs:text-xl sm:text-2xl flex-shrink-0"
                   animate={{
@@ -710,12 +710,12 @@ function AINeonFactChecker() {
               </div>
             </div>
 
-            <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-2 xs:gap-3 flex-wrap justify-center">
+            <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-3 xs:gap-4 sm:gap-5 flex-wrap justify-center">
               {/* Check Now Button - Green */}
               <motion.button
                 onClick={handleCheck}
                 disabled={loading}
-                className="flex-1 min-w-0 xs:min-w-[160px] sm:min-w-[180px] md:min-w-[200px] px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 rounded-xl xs:rounded-2xl font-bold text-sm xs:text-base sm:text-lg text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 active:scale-[0.98]"
+                className="flex-1 min-w-0 xs:min-w-[160px] sm:min-w-[180px] md:min-w-[200px] px-5 xs:px-6 sm:px-7 py-3.5 xs:py-4 sm:py-5 rounded-xl xs:rounded-2xl font-bold text-sm xs:text-base sm:text-lg text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 active:scale-[0.98]"
                 style={{
                   background: 'linear-gradient(to bottom, #4b7544, #77b16e)',
                   '--tw-ring-color': '#77b16e'
@@ -749,7 +749,7 @@ function AINeonFactChecker() {
               {result && (
                 <motion.button
                   onClick={copyAll}
-                  className="flex-1 min-w-0 xs:min-w-[160px] sm:min-w-[180px] md:min-w-[200px] px-4 xs:px-5 sm:px-6 py-3 xs:py-3.5 sm:py-4 rounded-xl xs:rounded-2xl font-bold text-sm xs:text-base sm:text-lg text-slate-700 bg-slate-100 hover:bg-slate-200 shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-300 active:scale-[0.98]"
+                  className="flex-1 min-w-0 xs:min-w-[160px] sm:min-w-[180px] md:min-w-[200px] px-5 xs:px-6 sm:px-7 py-3.5 xs:py-4 sm:py-5 rounded-xl xs:rounded-2xl font-bold text-sm xs:text-base sm:text-lg text-slate-700 bg-slate-100 hover:bg-slate-200 shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-300 active:scale-[0.98]"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   aria-label={T.copyVerificationAria}
@@ -823,12 +823,12 @@ function AINeonFactChecker() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="mt-5 xs:mt-6 sm:mt-8 grid gap-3 xs:gap-4 sm:gap-5"
+                className="mt-5 xs:mt-6 sm:mt-8 grid gap-4 xs:gap-5 sm:gap-6"
               >
                 {/* Case Status with Colored Circle - Only show if case exists */}
                 {result.case && (
                   <motion.div
-                    className="rounded-xl xs:rounded-2xl p-4 xs:p-5 sm:p-6 bg-white border-2 border-slate-200 shadow-sm"
+                    className="rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-7 bg-white border-2 border-slate-200 shadow-sm"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 }}
@@ -851,7 +851,7 @@ function AINeonFactChecker() {
                 {/* Analysis - Only show if talk exists */}
                 {result.talk && (
                   <motion.div
-                    className="rounded-xl xs:rounded-2xl p-4 xs:p-5 sm:p-6 bg-white border-2 border-slate-200 shadow-sm"
+                    className="rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-7 bg-white border-2 border-slate-200 shadow-sm"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
@@ -869,7 +869,7 @@ function AINeonFactChecker() {
                 {/* Sources - Only show if sources exist */}
                 {result.sources && result.sources.length > 0 && (
                   <motion.div
-                    className="rounded-xl xs:rounded-2xl p-4 xs:p-5 sm:p-6 bg-white border-2 border-slate-200 shadow-sm"
+                    className="rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-7 bg-white border-2 border-slate-200 shadow-sm"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
