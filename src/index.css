@@ -10,6 +10,13 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
   position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark mode background */
+html.dark body {
+  background-color: #0f172a;
+  background-image: url('/background.jpg');
 }
 
 /* Overlay to make content more readable */
@@ -23,6 +30,12 @@ body::after {
   background: rgba(245, 245, 240, 0.35);
   z-index: 0;
   pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+/* Dark mode overlay */
+html.dark body::after {
+  background: rgba(15, 23, 42, 0.93);
 }
 
 #root {
@@ -38,4 +51,8 @@ body::after {
 html, body, #root {
   font-family: var(--tajawal);
   color: #1e293b;
+}
+
+html.dark, html.dark body, html.dark #root {
+  color: #f1f5f9;
 }
