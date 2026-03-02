@@ -4,8 +4,8 @@ import { LanguageProvider, useLanguage } from "./contexts/LanguageContext";
 import { useTheme } from "./contexts/ThemeContext";
 import { LanguageToggle } from "./components/LanguageToggle";
 import { ThemeToggle } from "./components/ThemeToggle";
-import unaLogoLight from "./assets/unalogo-light.png";
-import unaLogoDark from "./assets/unalogo-dark.png";
+import unaLogoLight from "./assets/unalogo-light.jpeg";
+import unaLogoDark from "./assets/unalogo-dark.jpeg";
 
 // ======= Config =======
 const FACT_CHECK_URL = "/api/fact_check/";
@@ -513,136 +513,23 @@ function AINeonFactChecker() {
         transition={{ duration: 0.6 }}
         className="mx-auto pt-12 xs:pt-14 sm:pt-14 md:pt-16 flex flex-col items-center gap-1"
       >
-        {/* UNA Logo */}
+        {/* WAFA Logo */}
         <img
-          src={isDark ? unaLogoDark : unaLogoLight}
-          alt={T.logoAlt}
-          className="h-12 xs:h-14 sm:h-18 md:h-22 lg:h-26 xl:h-28 max-w-[80vw] sm:max-w-[85vw] object-contain select-none"
+          src={unaLogoDark}
+          alt="Wafa Fact Check"
+          className="h-16 xs:h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 max-w-[80vw] sm:max-w-[85vw] object-contain select-none"
           draggable="false"
         />
 
-        {/* Red Circle with Pulse Animation */}
-        <motion.div
-          className="relative flex items-center justify-center my-4 xs:my-5 sm:my-4 md:my-4"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
+
+        {/* Title - Wafa Fact Check */}
+        <h1
+          className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-none font-extrabold tracking-tight select-none my-3 xs:my-4 sm:my-1 ${
+            isDark ? 'text-white' : 'text-gray-900'
+          }`}
         >
-          {/* Outer glow rings - multiple layers */}
-          <motion.div
-            className="absolute inset-0 w-20 h-20 xs:w-24 xs:h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full blur-3xl"
-            style={{backgroundColor: 'rgba(194, 0, 9, 0.15)'}}
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.15, 0.25, 0.15]
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div
-            className="absolute inset-0 w-16 h-16 xs:w-20 xs:h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full blur-2xl"
-            style={{backgroundColor: 'rgba(230, 0, 11, 0.20)'}}
-            animate={{
-              scale: [1, 1.08, 1],
-              opacity: [0.2, 0.3, 0.2]
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.5
-            }}
-          />
-
-          {/* Main red circle - smaller size */}
-          <motion.div
-            className="relative w-14 h-14 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full flex items-center justify-center"
-            style={{
-              background: 'linear-gradient(to bottom right, #c20009, #e6000b, #c20009)'
-            }}
-            animate={{
-              boxShadow: [
-                '0 10px 40px rgba(194, 0, 9, 0.5), 0 0 80px rgba(194, 0, 9, 0.3)',
-                '0 15px 50px rgba(230, 0, 11, 0.7), 0 0 100px rgba(230, 0, 11, 0.4)',
-                '0 10px 40px rgba(194, 0, 9, 0.5), 0 0 80px rgba(194, 0, 9, 0.3)'
-              ]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            {/* Shine effect - top left */}
-            <div className="absolute top-1 left-1 xs:top-2 xs:left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-white/40 via-white/20 to-transparent blur-sm" />
-
-            {/* Inner highlight */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/25 via-transparent to-transparent" />
-
-            {/* Inner glow */}
-            <motion.div
-              className="absolute inset-4 rounded-full"
-              style={{
-                background: 'linear-gradient(to bottom right, rgba(230, 0, 11, 0.5), transparent)'
-              }}
-              animate={{
-                opacity: [0.5, 0.8, 0.5]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-
-            {/* Rotating ring */}
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-dashed border-white/20"
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            />
-          </motion.div>
-
-          {/* Orbiting particles */}
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 rounded-full"
-              style={{
-                backgroundColor: 'rgba(230, 0, 11, 0.6)',
-                left: '50%',
-                top: '50%',
-              }}
-              animate={{
-                x: [0, Math.cos(i * Math.PI / 4) * 100, 0],
-                y: [0, Math.sin(i * Math.PI / 4) * 100, 0],
-                opacity: [0, 0.6, 0],
-                scale: [0, 1, 0]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                delay: i * 0.2,
-                ease: "easeOut"
-              }}
-            />
-          ))}
-        </motion.div>
-
-        {/* Title - PalestiFact Logo */}
-        <img
-          src="/PalestiFact-logo.png"
-          alt="PalestiFact"
-          className="h-20 xs:h-24 sm:h-28 md:h-36 lg:h-44 xl:h-48 max-w-[85vw] object-contain select-none my-3 xs:my-4 sm:my-1"
-          draggable="false"
-        />
+          Wafa Fact Check
+        </h1>
 
         {/* Subtitle in Arabic */}
         <p className={`text-xs xs:text-sm sm:text-base md:text-lg text-center max-w-[95vw] xs:max-w-[90vw] sm:max-w-2xl md:max-w-4xl lg:max-w-5xl leading-relaxed px-2 xs:px-3 sm:px-4 mt-2 xs:mt-1 sm:-mt-3 ${isDark ? 'text-gray-300' : 'text-slate-700'}`}>
