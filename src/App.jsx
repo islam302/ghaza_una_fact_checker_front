@@ -4,8 +4,8 @@ import { LanguageProvider, useLanguage } from "./contexts/LanguageContext";
 import { useTheme } from "./contexts/ThemeContext";
 import { LanguageToggle } from "./components/LanguageToggle";
 import { ThemeToggle } from "./components/ThemeToggle";
-import unaLogoLight from "./assets/unalogo-light.jpeg";
-import unaLogoDark from "./assets/unalogo-dark.jpeg";
+import unaLogoLight from "./assets/unalogo-light.png";
+import unaLogoDark from "./assets/unalogo-dark.png";
 
 // ======= Config =======
 const FACT_CHECK_URL = "/api/fact_check/";
@@ -515,7 +515,7 @@ function AINeonFactChecker() {
       >
         {/* WAFA Logo */}
         <img
-          src={unaLogoDark}
+          src={isDark ? unaLogoDark : unaLogoLight}
           alt="Wafa Fact Check"
           className="h-16 xs:h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 max-w-[80vw] sm:max-w-[85vw] object-contain select-none"
           draggable="false"
@@ -524,7 +524,7 @@ function AINeonFactChecker() {
 
         {/* Title - Wafa Fact Check */}
         <h1
-          className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-none font-extrabold tracking-tight select-none my-3 xs:my-4 sm:my-1 ${
+          className={`text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl leading-none font-extrabold tracking-tight select-none my-3 xs:my-4 sm:my-1 ${
             isDark ? 'text-white' : 'text-gray-900'
           }`}
         >
