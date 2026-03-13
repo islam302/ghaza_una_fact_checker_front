@@ -562,7 +562,8 @@ function AINeonFactChecker() {
               style={{'--tw-ring-color': '#77b16e'}}
               placeholder={language === 'arabic' ? 'اكتب العنوان هنا' : T.placeholder}
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => setQuery(e.target.value.slice(0, 150))}
+              maxLength={150}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
                   e.preventDefault();
@@ -572,6 +573,9 @@ function AINeonFactChecker() {
               aria-label={T.ariaInput}
               aria-describedby="input-help"
             />
+            <div className={`flex ${language === 'arabic' ? 'justify-end' : 'justify-start'} text-xs xs:text-sm ${query.length >= 150 ? 'text-red-500' : isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+              <span>150 / {query.length}</span>
+            </div>
 
             {/* Specialization Note */}
             <div className={`rounded-xl xs:rounded-2xl border-2 p-4 xs:p-5 sm:p-4 md:p-5 ${isDark ? 'bg-slate-900/80 border-slate-600' : 'bg-white border-slate-200'}`}>
